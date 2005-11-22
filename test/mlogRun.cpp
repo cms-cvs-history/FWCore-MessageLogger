@@ -1,12 +1,12 @@
 /*----------------------------------------------------------------------
 
-This is a generic main that can be used with any plugin and a 
+This is a generic main that can be used with any plugin and a
 PSet script.   See notes in EventProcessor.cpp for details about
 it.
 
-$Id:  $
+$Id: mlogRun.cpp,v 1.1 2005/11/18 21:59:07 fischler Exp $
 
-----------------------------------------------------------------------*/  
+----------------------------------------------------------------------*/
 
 #include <exception>
 #include <iostream>
@@ -19,6 +19,7 @@ $Id:  $
 #include "FWCore/Utilities/interface/ProblemTracker.h"
 #include "FWCore/Utilities/interface/Exception.h"
 #include "FWCore/MessageLogger/interface/MessageLoggerSpigot.h"
+//#include "FWCore/MessageLogger/interface/MessageLogger.h"  // for test
 
 using namespace std;
 static const char* const kParameterSetOpt = "parameter-set";
@@ -31,13 +32,17 @@ static const char* const kHelpCommandOpt = "help,h";
 int main(int argc, char* argv[])
 {
   edm::MessageLoggerSpigot theMessageLoggerSpigot;
+
+  // verify that we can send a message before the service is started:
+  //edm::LogInfo("pre-service") << "MessageLoggerSpigot instantiated";
+
   using namespace boost::program_options;
   std::string descString(argv[0]);
   descString += " [options] [--";
   descString += kParameterSetOpt;
   descString += "] config_file \nAllowed options";
   options_description desc(descString);
-  
+
   desc.add_options()
     (kHelpCommandOpt, "produce help message")
     (kParameterSetCommandOpt,value<std::string>(), "configuration file")
@@ -45,7 +50,7 @@ int main(int argc, char* argv[])
 
   positional_options_description p;
   p.add(kParameterSetOpt, -1);
-  
+
   variables_map vm;
   try {
     store(command_line_parser(argc,argv).options(desc).positional(p).run(),vm);
@@ -54,12 +59,12 @@ int main(int argc, char* argv[])
     std::cout << iException.what()<<std::endl;
     return 1;
   }
-    
+
   if(vm.count(kHelpOpt)){
     std::cout << desc <<std::endl;
     return 1;
   }
-  
+
   if(!vm.count(kParameterSetOpt)){
     std::cout <<"no configuration file given \n"
     <<" please do '"<<argv[0]<<" --"<<kHelpOpt<<"'."<<std::endl;
@@ -72,12 +77,12 @@ int main(int argc, char* argv[])
     <<vm[kParameterSetOpt].as<std::string>()<<std::endl;
     return 1;
   }
-  
+
   string configstring;
   string line;
-  
+
   while(std::getline(configFile,line)) { configstring+=line; configstring+="\n"; }
-  
+
   edm::AssertHandler ah;
 
   int rc = -1; // we should never return this value!
@@ -112,6 +117,6 @@ int main(int argc, char* argv[])
 		<< std::endl;
       rc = 2;
     }
-  
+
   return rc;
 }
