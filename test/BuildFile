@@ -17,6 +17,13 @@
   <use name=FWCore/MessageLogger>
   <use name=FWCore/Framework>
 </library>
+
+<library file="MLlog4cplus.cc,ELlog4cplus.cc" name=MLlog4cplus>
+ <flags SEAL_PLUGIN_NAME="MLlog4cplus">
+ <use name=FWCore/MessageLogger>
+ <use name=FWCore/Framework>
+</library>
+
 </environment>
 
 #<bin file=mlogRun.cpp>
