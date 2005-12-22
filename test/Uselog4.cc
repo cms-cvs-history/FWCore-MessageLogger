@@ -19,12 +19,13 @@ namespace {
      using namespace log4cplus;
      using namespace log4cplus::helpers;
 
+     std::cerr << "getRootOne from Uselog4 called \n";
      SharedAppenderPtr ap(new ConsoleAppender());
      ap->setName("Main");
      ap->setLayout(std::auto_ptr<Layout>(new log4cplus::TTCCLayout()) );
      Logger::getRoot().addAppender(ap);
      // return Logger::getRoot();
-     return Logger::getInstance("Scummy");
+     return Logger::getInstance("TestMe");
   }
 }
 

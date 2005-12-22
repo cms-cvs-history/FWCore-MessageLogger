@@ -5,7 +5,7 @@
 // 
 //
 // Original Author:  Jim Kowalkowski
-// $Id$
+// $Id: MLlog4cplus.cc,v 1.1 2005/12/20 23:04:52 jbk Exp $
 //
 
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
@@ -48,6 +48,9 @@ namespace ML {
 
   MLlog4cplus::MLlog4cplus(const ParameterSet& iPS, ActivityRegistry&iRegistry)
   {
+    // we may want these in the future, but probably not, since the
+    // MessageLogger service is supposed to deal with that stuff anyway (JBK)
+
     // iRegistry.watchPostBeginJob(this,&MLlog4cplus::postBeginJob);
     // iRegistry.watchPostEndJob(this,&MLlog4cplus::postEndJob);
     
@@ -57,10 +60,17 @@ namespace ML {
     // iRegistry.watchPreModule(this,&MLlog4cplus::preModule);
     // iRegistry.watchPostModule(this,&MLlog4cplus::postModule);
 
+
+    // pseudo-code:
     // get message logger message queue (singleton)
     // make new ELlog4cplus object using parameterset set information
     // make a message with opcode NEWDEST
     // send message (NEWDEST,ELdest*)
+
+
+    // we should first get a handle to the MessageLogger service to
+    // ensure that it is initialized before we are (JBK)
+    // edm::Service<edm::MessageLogger> handle;
 
     ELlog4cplus * dest = new ELlog4cplus;
     edm::MessageLoggerQ::EXT(dest);

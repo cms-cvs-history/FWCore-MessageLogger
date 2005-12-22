@@ -138,6 +138,8 @@ protected:
   //
   ELlog4cplus & operator=( const ELlog4cplus & orig );
 
+ private:
+
 };  // ELlog4cplus
 
 

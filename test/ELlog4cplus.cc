@@ -45,6 +45,10 @@
 #include "FWCore/MessageLogger/interface/ELadministrator.h"
 #include "FWCore/MessageLogger/interface/ELcontextSupplier.h"
 
+#include "log4cplus/logger.h"
+#include "log4cplus/fileappender.h"
+#include "log4cplus/loglevel.h"
+
 #ifndef IOSTREAM_INCLUDED
 #endif
 
@@ -67,6 +71,23 @@
 
 namespace edm
 {
+
+namespace {
+  void makeFileAppender()
+  {
+    static bool iscalled = false;
+    if(iscalled) return;
+    iscalled=true;
+
+    using namespace log4cplus;
+    using namespace log4cplus::helpers;
+
+    SharedAppenderPtr ap(new FileAppender("log4cplus.output"));
+    ap->setName("Main");
+    ap->setLayout(std::auto_ptr<Layout>(new log4cplus::TTCCLayout()) );
+    Logger::getRoot().addAppender(ap);
+  }
+}
 
 // ----------------------------------------------------------------------
 // Useful function:
@@ -117,10 +138,13 @@ ELlog4cplus::ELlog4cplus()
 , wantEpilogueSeparate( false      )
 , xxxxInt             ( 0          )
 {
+  makeFileAppender();
 
   #ifdef ELlog4cplusCONSTRUCTOR_TRACE
     std::cerr << "Constructor for ELlog4cplus()\n";
   #endif
+
+  lineLength = 32000;
 
   emit( "\n=======================================================", true );
   emit( "\nMessageLogger service established\n" );
@@ -201,7 +225,10 @@ ELlog4cplus::clone() const  {
 
 
 bool ELlog4cplus::log( const ErrorObj & msg )  {
-
+  log4cplus::Logger loghere = 
+    log4cplus::Logger::getInstance(msg.xid().module.c_str());
+  log4cplus::getNDC().push(msg.context().c_str());
+  
   os->str(std::string());
 
   #ifdef ELlog4cplusTRACE_LOG
@@ -339,7 +366,34 @@ bool ELlog4cplus::log( const ErrorObj & msg )  {
     std::cerr << "  =:=:=: log(msg) done: \n";
   #endif
 
-    std::cout << os->str() << "\n";
+    // std::cout << os->str() << "\n";
+
+    switch(msg.xid().severity.getLevel())
+      {
+      case edm::ELseverityLevel::ELsev_success:
+	{
+	  // success is used for debug here
+	  LOG4CPLUS_DEBUG(loghere,os->str());
+	  break;
+	}
+      case edm::ELseverityLevel::ELsev_info:
+	{
+	  LOG4CPLUS_INFO(loghere,os->str());
+	  break;
+	}
+      case edm::ELseverityLevel::ELsev_warning:
+	{
+	  LOG4CPLUS_WARN(loghere,os->str());
+	  break;
+	}
+      case edm::ELseverityLevel::ELsev_error:
+      default:
+	{
+	  LOG4CPLUS_ERROR(loghere,os->str());
+	  break;
+	}
+      }
+    log4cplus::getNDC().pop();
   return true;
 
 }  // log()
