@@ -1,40 +1,9 @@
 // ----------------------------------------------------------------------
 //
-// ELoutput.cc
+// ELcontextSupplier.cc
 //
 //
-// 7/8/98       mf      Created
-// 6/10/99      jv      JV:1 puts a \n after each log using suppressContext()
-// 6/11/99      jv      JV:2 accounts for newline at the beginning and end of
-//                           an emitted ELstring
-// 6/14/99      mf      Made the static char* in formatTime into auto so that
-//                      ctime(&t) is called each time - corrects the bug of
-//                      never changing the first timestamp.
-// 6/15/99      mf      Inserted operator<<(void (*f)(ErrorLog&) to avoid
-//                      mystery characters being inserted when users <<
-//                      endmsg to an ErrorObj.
-// 7/2/99       jv      Added separate/attachTime, Epilogue, and Serial options
-// 8/2/99       jv      Modified handling of newline in an emmitted ELstring
-// 2/22/00      mf      Changed usage of myDestX to myOutputX.  Added
-//                      constructor of ELoutput from ELoutputX * to allow for
-//                      inheritance.
-// 6/7/00       web     Reflect consolidation of ELdestination/X; consolidate
-//                      ELoutput/X; add filterModule() and query logic
-// 10/4/00      mf      excludeModule()
-// 1/15/01      mf      line length control: changed ELoutputLineLen to
-//                      the base class lineLen (no longer static const)
-// 2/13/01      mf      Added emitAtStart argument to two constructors
-//                      { Enh 001 }.
-// 4/4/01       mf      Simplify filter/exclude logic by useing base class
-//                      method thisShouldBeIgnored().  Eliminate
-//                      moduleOfinterest and moduleToexclude.
-// 6/15/01      mf      Repaired Bug 005 by explicitly setting all
-//                      ELdestination member data appropriately.
-//10/18/01      mf      When epilogue not on separate line, preceed by space
-// 6/23/03      mf      changeFile(), flush()
-// 4/09/04      mf      Add 1 to length in strftime call in formatTime, to
-//                      correctly provide the time zone.  Had been providing
-//                      CST every time.
+// 12/20/05   jm, mf    Created, based on ELoutput.
 //
 // ----------------------------------------------------------------------
 
@@ -225,10 +194,6 @@ ELlog4cplus::clone() const  {
 
 
 bool ELlog4cplus::log( const ErrorObj & msg )  {
-  log4cplus::Logger loghere = 
-    log4cplus::Logger::getInstance(msg.xid().module.c_str());
-  log4cplus::getNDC().push(msg.context().c_str());
-  
   os->str(std::string());
 
   #ifdef ELlog4cplusTRACE_LOG
@@ -248,6 +213,11 @@ bool ELlog4cplus::log( const ErrorObj & msg )  {
     std::cerr << "    =:=:=: Limits table work done \n";
   #endif
 
+  // get log4cplus logger and establish (log4cplus) context 
+  log4cplus::Logger loghere = 
+    log4cplus::Logger::getInstance(msg.xid().module.c_str());
+  log4cplus::getNDC().push(msg.context().c_str());
+  
   // Output the prologue:
   //
   emit( preamble );

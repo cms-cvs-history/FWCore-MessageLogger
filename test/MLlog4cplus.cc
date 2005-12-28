@@ -5,11 +5,12 @@
 // 
 //
 // Original Author:  Jim Kowalkowski
-// $Id: MLlog4cplus.cc,v 1.1 2005/12/20 23:04:52 jbk Exp $
+// $Id: MLlog4cplus.cc,v 1.2 2005/12/22 16:30:30 jbk Exp $
 //
 
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 #include "FWCore/MessageLogger/interface/MessageLoggerQ.h"
+#include "FWCore/MessageLogger/interface/NamedDestination.h"
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/ServiceRegistry/interface/ActivityRegistry.h"
 #include "FWCore/EDProduct/interface/EventID.h"
@@ -72,8 +73,9 @@ namespace ML {
     // ensure that it is initialized before we are (JBK)
     // edm::Service<edm::MessageLogger> handle;
 
-    ELlog4cplus * dest = new ELlog4cplus;
-    edm::MessageLoggerQ::EXT(dest);
+    ELlog4cplus * dest_p = new ELlog4cplus;
+    NamedDestination * ndest = new NamedDestination ( "log4cplus", dest_p ); 
+    edm::MessageLoggerQ::EXT(ndest);
   }
 
 
