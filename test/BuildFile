@@ -3,6 +3,14 @@
 <use name=FWCore/Utilities>
 
 <environment>
+
+<library file="UnitTestClient_A.cc" name=UnitTestClient_A>
+  <flags SEAL_PLUGIN_NAME="UnitTestClient_A">
+  <use name=FWCore/MessageLogger>
+  <use name=FWCore/Framework>
+</library>
+
+
 <library file="Uselog4.cc" name=Uselog4>
   <flags SEAL_PLUGIN_NAME="Uselog4">
   <use name=xdaq>

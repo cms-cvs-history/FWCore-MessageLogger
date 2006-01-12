@@ -21,7 +21,7 @@ void
   edm::LogInfo("aTestMessage") << "LogInfo was used to send this message";
   edm::LogWarning("aTestMessage") << "LogWarning was used to send this message";
   edm::LogError("aTestMessage") << "LogError was used to send this message";
-  edm::LogInfo("cat1&cat2&&cat3") << "Three-category message";
+  edm::LogInfo("cat1|cat2||cat3") << "Three-category message";
 
   edm::LogWarning("aboutToSend") << "about to send 100 warnings";
   for( unsigned i = 0;  i != 100;  ++i )  {
