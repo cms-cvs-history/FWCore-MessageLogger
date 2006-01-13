@@ -1,0 +1,15 @@
+
+       =================================================
+
+       Message Log File written by MessageLogger service 
+       
+       =================================================
+       
+%MSG-e cat_A: LogError was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-e cat_B: LogError was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-e cat_A: LogError was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/2
+%MSG-e cat_B: LogError was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/2

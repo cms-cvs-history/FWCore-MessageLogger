@@ -1,0 +1,41 @@
+
+       =================================================
+
+       Message Log File written by MessageLogger service 
+       
+       =================================================
+       
+%MSG-i postBeginJob: Job started  BeginningJob 0/0
+%MSG-i preModule: Module: sendSomeMessages  BetweenModules 1/1
+%MSG-e cat_A: LogError was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-e cat_B: LogError was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-w cat_A: LogWarning was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-w cat_B: LogWarning was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-i cat_A: LogInfo was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-i cat_B: LogInfo was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-i postModule: Module: sendSomeMessages  finished  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-i postEventProcessing: Finished event  BetweenModules 1/1
+%MSG-i preModule: Module: sendSomeMessages  BetweenModules 1/2
+%MSG-e cat_A: LogError was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/2
+%MSG-e cat_B: LogError was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/2
+%MSG-w cat_A: LogWarning was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/2
+%MSG-w cat_B: LogWarning was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/2
+%MSG-i cat_A: LogInfo was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/2
+%MSG-i cat_B: LogInfo was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/2
+%MSG-i postModule: Module: sendSomeMessages  finished  
+       UnitTestClient_A:sendSomeMessages 1/2
+%MSG-i postEventProcessing: Finished event  BetweenModules 1/2
+%MSG-i postEndJob: Job ended  BetweenModules 0/0
