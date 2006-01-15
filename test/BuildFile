@@ -47,7 +47,7 @@
 </bin>
 
 <bin file=u1.cpp>
-  <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u1.sh u1.sh">
+  <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u1.sh u2.sh">
 </bin>
 
 
