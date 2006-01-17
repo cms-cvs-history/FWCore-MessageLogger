@@ -46,7 +46,7 @@
   <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test testLoggerInCmsRun.sh">
 </bin>
 
-<bin file=u1.cpp>
+<bin file=unitTestsGroup_1.cpp>
   <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u1.sh u2.sh">
 </bin>
 
