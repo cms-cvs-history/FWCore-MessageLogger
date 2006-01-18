@@ -1,7 +1,7 @@
 MessageLogger Summary
 
 Process 
- type    message id       sev    module        subroutine        count    total
+ type     category        sev    module        subroutine        count    total
  ---- -------------------- -- ---------------- ----------------  -----    -----
     1 cat_A                -i UnitTestClient_A                       3*       3
     2 cat_B                -i UnitTestClient_A                       3*       3
@@ -18,7 +18,7 @@ Process
 
 * Some occurrences of this message were suppressed in all logs, due to limits.
 
- type   message id   Examples: run/evt        run/evt          run/evt
+ type    category    Examples: run/evt        run/evt          run/evt
  ---- -------------------- ---------------- ---------------- ----------------
     1 cat_A                1/1              1/2              1/3
     2 cat_B                1/1              1/2              1/3
