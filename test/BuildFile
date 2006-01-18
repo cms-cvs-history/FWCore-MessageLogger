@@ -51,7 +51,7 @@
 </bin>
 
 <bin file=unitTestsStatistics.cpp>
-  <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u3.sh">
+  <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u3.sh u4.sh">
 </bin>
 
 

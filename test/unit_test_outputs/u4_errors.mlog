@@ -1,0 +1,35 @@
+
+       =================================================
+
+       Message Log File written by MessageLogger service 
+       
+       =================================================
+       
+%MSG-e cat_A: LogError was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-e cat_B: LogError was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/1
+%MSG-e cat_A: LogError was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/2
+%MSG-e cat_B: LogError was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/2
+%MSG-e cat_A: LogError was used to send this message  
+       UnitTestClient_A:sendSomeMessages 1/3
+%MSG-e cat_B: LogError was used to send this other message  
+       UnitTestClient_A:sendSomeMessages 1/3
+MessageLogger Summary
+
+Process 
+ type    message id       sev    module        subroutine        count    total
+ ---- -------------------- -- ---------------- ----------------  -----    -----
+    1 cat_A                -e UnitTestClient_A                       3        3
+    2 cat_B                -e UnitTestClient_A                       3        3
+
+ type   message id   Examples: run/evt        run/evt          run/evt
+ ---- -------------------- ---------------- ---------------- ----------------
+    1 cat_A                1/1              1/2              1/3
+    2 cat_B                1/1              1/2              1/3
+
+Severity    # Occurrences   Total Occurrences
+--------    -------------   -----------------
+Error                   6                   6
