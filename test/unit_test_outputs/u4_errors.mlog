@@ -17,6 +17,9 @@
        UnitTestClient_A:sendSomeMessages 1/3
 %MSG-e cat_B: LogError was used to send this other message  
        UnitTestClient_A:sendSomeMessages 1/3
+
+=============================================
+
 MessageLogger Summary
 
 Process 
