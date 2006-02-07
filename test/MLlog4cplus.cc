@@ -5,7 +5,7 @@
 // 
 //
 // Original Author:  Jim Kowalkowski
-// $Id: MLlog4cplus.cc,v 1.2 2005/12/22 16:30:30 jbk Exp $
+// $Id: MLlog4cplus.cc,v 1.3 2005/12/28 20:58:59 fischler Exp $
 //
 
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
@@ -13,8 +13,8 @@
 #include "FWCore/MessageLogger/interface/NamedDestination.h"
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/ServiceRegistry/interface/ActivityRegistry.h"
-#include "FWCore/EDProduct/interface/EventID.h"
-#include "FWCore/EDProduct/interface/Timestamp.h"
+#include "DataFormats/Common/interface/EventID.h"
+#include "DataFormats/Common/interface/Timestamp.h"
 #include "FWCore/ServiceRegistry/interface/ServiceMaker.h"
 #include "FWCore/Framework/interface/ModuleDescription.h"
 #include "FWCore/Utilities/interface/Exception.h"
