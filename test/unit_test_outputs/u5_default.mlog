@@ -6,25 +6,16 @@ MessageLogger Summary
 Process 
  type     category        sev    module        subroutine        count    total
  ---- -------------------- -- ---------------- ----------------  -----    -----
-    1 postBeginJob         -i BeginningJob                           1*       1
-    2 preEventProcessing   -i BetweenModules                         1*       1
-    3 preModule            -i BetweenModules                         1*       1
-    4 cat_A                -e UnitTestClient_B                       1        1
-    5 cat_B                -e UnitTestClient_B                       1        1
-
-* Some occurrences of this message were suppressed in all logs, due to limits.
+    1 cat_A                -e UnitTestClient_B                       1        1
+    2 cat_B                -e UnitTestClient_B                       1        1
 
  type    category    Examples: run/evt        run/evt          run/evt
  ---- -------------------- ---------------- ---------------- ----------------
-    1 postBeginJob         0/0                               
-    2 preEventProcessing   0/0                               
-    3 preModule            1/1                               
-    4 cat_A                1/1                               
-    5 cat_B                1/1                               
+    1 cat_A                1/1                               
+    2 cat_B                1/1                               
 
 Severity    # Occurrences   Total Occurrences
 --------    -------------   -----------------
-Info                    3                   3
 Error                   2                   2
 
 =============================================
@@ -34,29 +25,16 @@ MessageLogger Summary
 Process 
  type     category        sev    module        subroutine        count    total
  ---- -------------------- -- ---------------- ----------------  -----    -----
-    1 postBeginJob         -i BeginningJob                           1*       1
-    2 postEventProcessing  -i BetweenModules                         1*       1
-    3 postModule           -i UnitTestClient_B                       1*       1
-    4 preEventProcessing   -i BetweenModules                         2*       2
-    5 preModule            -i BetweenModules                         2*       2
-    6 cat_A                -e UnitTestClient_B                       3        3
-    7 cat_B                -e UnitTestClient_B                       2        2
-
-* Some occurrences of this message were suppressed in all logs, due to limits.
+    1 cat_A                -e UnitTestClient_B                       3        3
+    2 cat_B                -e UnitTestClient_B                       2        2
 
  type    category    Examples: run/evt        run/evt          run/evt
  ---- -------------------- ---------------- ---------------- ----------------
-    1 postBeginJob         0/0                               
-    2 postEventProcessing  1/1                               
-    3 postModule           1/1                               
-    4 preEventProcessing   0/0              0/0              
-    5 preModule            1/1              1/2              
-    6 cat_A                1/1              1/2              1/2
-    7 cat_B                1/1              1/2              
+    1 cat_A                1/1              1/2              1/2
+    2 cat_B                1/1              1/2              
 
 Severity    # Occurrences   Total Occurrences
 --------    -------------   -----------------
-Info                    7                   7
 Error                   5                   5
 
 =============================================
@@ -66,29 +44,16 @@ MessageLogger Summary
 Process 
  type     category        sev    module        subroutine        count    total
  ---- -------------------- -- ---------------- ----------------  -----    -----
-    1 postBeginJob         -i BeginningJob                           1*       1
-    2 postEventProcessing  -i BetweenModules                         2*       2
-    3 postModule           -i UnitTestClient_B                       2*       2
-    4 preEventProcessing   -i BetweenModules                         3*       3
-    5 preModule            -i BetweenModules                         3*       3
-    6 cat_A                -e UnitTestClient_B                       6        6
-    7 cat_B                -e UnitTestClient_B                       3        3
-
-* Some occurrences of this message were suppressed in all logs, due to limits.
+    1 cat_A                -e UnitTestClient_B                       6        6
+    2 cat_B                -e UnitTestClient_B                       3        3
 
  type    category    Examples: run/evt        run/evt          run/evt
  ---- -------------------- ---------------- ---------------- ----------------
-    1 postBeginJob         0/0                               
-    2 postEventProcessing  1/1              1/2              
-    3 postModule           1/1              1/2              
-    4 preEventProcessing   0/0              0/0              0/0
-    5 preModule            1/1              1/2              1/3
-    6 cat_A                1/1              1/2              1/3
-    7 cat_B                1/1              1/2              1/3
+    1 cat_A                1/1              1/2              1/3
+    2 cat_B                1/1              1/2              1/3
 
 Severity    # Occurrences   Total Occurrences
 --------    -------------   -----------------
-Info                   11                  11
 Error                   9                   9
 
 =============================================
@@ -98,29 +63,16 @@ MessageLogger Summary
 Process 
  type     category        sev    module        subroutine        count    total
  ---- -------------------- -- ---------------- ----------------  -----    -----
-    1 postBeginJob         -i BeginningJob                           1*       1
-    2 postEndJob           -i BetweenModules                         1*       1
-    3 postEventProcessing  -i BetweenModules                         3*       3
-    4 postModule           -i UnitTestClient_B                       3*       3
-    5 preEventProcessing   -i BetweenModules                         3*       3
-    6 preModule            -i BetweenModules                         3*       3
-    7 cat_A                -e UnitTestClient_B                       6        6
-    8 cat_B                -e UnitTestClient_B                       3        3
+    1 cat_A                -e UnitTestClient_B                       6        6
+    2 cat_B                -e UnitTestClient_B                       3        3
 
 * Some occurrences of this message were suppressed in all logs, due to limits.
 
  type    category    Examples: run/evt        run/evt          run/evt
  ---- -------------------- ---------------- ---------------- ----------------
-    1 postBeginJob         0/0                               
-    2 postEndJob           0/0                               
-    3 postEventProcessing  1/1              1/2              1/3
-    4 postModule           1/1              1/2              1/3
-    5 preEventProcessing   0/0              0/0              0/0
-    6 preModule            1/1              1/2              1/3
-    7 cat_A                1/1              1/2              1/3
-    8 cat_B                1/1              1/2              1/3
+    1 cat_A                1/1              1/2              1/3
+    2 cat_B                1/1              1/2              1/3
 
 Severity    # Occurrences   Total Occurrences
 --------    -------------   -----------------
-Info                   14                  14
 Error                   9                   9
