@@ -10,7 +10,7 @@ namespace edm {
 }
 
 
-namespace edmreftest
+namespace edmtest
 {
 
 class MessageLoggerClient
@@ -34,7 +34,7 @@ private:
 };
 
 
-}  // namespace edmreftest
+}  // namespace edmtest
 
 
 #endif  // Integration_MessageLoggerClient_h

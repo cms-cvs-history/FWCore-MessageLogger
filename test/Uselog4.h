@@ -13,7 +13,7 @@ namespace edm {
 }
 
 
-namespace edmreftest
+namespace edmtest
 {
 
 class Uselog4
@@ -36,7 +36,7 @@ private:
 };
 
 
-}  // namespace edmreftest
+}  // namespace edmtest
 
 
 #endif  // Integration_ Uselog4_h

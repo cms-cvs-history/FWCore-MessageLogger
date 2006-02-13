@@ -10,7 +10,7 @@
 #include <iostream>
 #include <memory>
 
-namespace edmreftest
+namespace edmtest
 {
 
 namespace {
@@ -61,8 +61,8 @@ void
 }  // Uselog4::analyze()
 
 
-}  // namespace edmreftest
+}  // namespace edmtest
 
 
-using edmreftest::Uselog4;
+using edmtest::Uselog4;
 DEFINE_FWK_MODULE(Uselog4)

@@ -10,7 +10,7 @@ namespace edm {
 }
 
 
-namespace edmreftest
+namespace edmtest
 {
 
 class UnitTestClient_A
@@ -34,7 +34,7 @@ private:
 };
 
 
-}  // namespace edmreftest
+}  // namespace edmtest
 
 
 #endif  // FWCore_MessageLogger_test_UnitTestClient_A_h

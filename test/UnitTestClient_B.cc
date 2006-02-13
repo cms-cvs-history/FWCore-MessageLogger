@@ -7,7 +7,7 @@
 #include <iostream>
 #include <string>
 
-namespace edmreftest
+namespace edmtest
 {
  
 int  UnitTestClient_B::nevent = 0;
@@ -26,8 +26,8 @@ void
 }  // MessageLoggerClient::analyze()
 
 
-}  // namespace edmreftest
+}  // namespace edmtest
 
 
-using edmreftest::UnitTestClient_B;
+using edmtest::UnitTestClient_B;
 DEFINE_FWK_MODULE(UnitTestClient_B)
