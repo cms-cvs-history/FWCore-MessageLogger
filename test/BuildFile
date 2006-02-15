@@ -1,6 +1,5 @@
 <use name=boost>
-<use name=xdaq>
-<use name=FWCore/Utilities>
+#<use name=FWCore/Utilities>
 
 <environment>
 
@@ -17,25 +16,10 @@
 </library>
 
 
-<library file="Uselog4.cc" name=Uselog4>
-  <flags SEAL_PLUGIN_NAME="Uselog4">
-  <use name=xdaq>
-  <use name=FWCore/MessageLogger>
-  <use name=FWCore/Framework>
-</library>
-
-
-
 <library file="MessageLoggerClient.cc" name=MessageLoggerClient>
   <flags SEAL_PLUGIN_NAME="MessageLoggerClient">
   <use name=FWCore/MessageLogger>
   <use name=FWCore/Framework>
-</library>
-
-<library file="MLlog4cplus.cc,ELlog4cplus.cc" name=MLlog4cplus>
- <flags SEAL_PLUGIN_NAME="MLlog4cplus">
- <use name=FWCore/MessageLogger>
- <use name=FWCore/Framework>
 </library>
 
 </environment>
