@@ -3,7 +3,6 @@
 
 MessageLogger Summary
 
-Process 
  type     category        sev    module        subroutine        count    total
  ---- -------------------- -- ---------------- ----------------  -----    -----
     1 cat_A                -i UnitTestClient_A                       3        3

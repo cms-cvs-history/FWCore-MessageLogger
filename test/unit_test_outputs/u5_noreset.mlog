@@ -3,7 +3,6 @@
 
 MessageLogger Summary
 
-Process 
  type     category        sev    module        subroutine        count    total
  ---- -------------------- -- ---------------- ----------------  -----    -----
     1 cat_A                -e UnitTestClient_B                       1        1
@@ -22,7 +21,6 @@ Error                   2                   2
 
 MessageLogger Summary
 
-Process 
  type     category        sev    module        subroutine        count    total
  ---- -------------------- -- ---------------- ----------------  -----    -----
     1 cat_A                -e UnitTestClient_B                       3        3
@@ -41,7 +39,6 @@ Error                   5                   5
 
 MessageLogger Summary
 
-Process 
  type     category        sev    module        subroutine        count    total
  ---- -------------------- -- ---------------- ----------------  -----    -----
     1 cat_A                -e UnitTestClient_B                       6        6
@@ -60,7 +57,6 @@ Error                   9                   9
 
 MessageLogger Summary
 
-Process 
  type     category        sev    module        subroutine        count    total
  ---- -------------------- -- ---------------- ----------------  -----    -----
     1 cat_A                -e UnitTestClient_B                       6        6
