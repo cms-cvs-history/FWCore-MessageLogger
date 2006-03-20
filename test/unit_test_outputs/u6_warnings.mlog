@@ -5,12 +5,11 @@
        
        =================================================
        
-%MSG-w cat_A: Test of std::hex: 145 in hex is 91  
-       UnitTestClient_C:sendSomeMessages 1/1
-%MSG-w cat_A: Test of std::setw(n) and std::setfill('c'): 
-       The following should read ++abcdefg $$$12: ++abcdefg $$$12  
-       UnitTestClient_C:sendSomeMessages 1/1
-%MSG-w cat_A: Test of std::setprecision(p): Pi with precision 12 is 
-       3.14159265358  UnitTestClient_C:sendSomeMessages 1/1
-%MSG-w cat_A: Test of spacing: The following should read a b c dd: a b c dd  
-       UnitTestClient_C:sendSomeMessages 1/1
+%MSG-w cat_A:  UnitTestClient_C:sendSomeMessages 1/1
+Test of std::hex:145 in hex is91 
+%MSG-w cat_A:  UnitTestClient_C:sendSomeMessages 1/1
+Test of std::setw(n) and std::setfill('c'):The following should read ++abcdefg $$$12:++abcdefg$$$12 
+%MSG-w cat_A:  UnitTestClient_C:sendSomeMessages 1/1
+Test of std::setprecision(p):Pi with precision 12 is3.14159265358 
+%MSG-w cat_A:  UnitTestClient_C:sendSomeMessages 1/1
+Test of spacing:The following should read a b c dd:abcdd

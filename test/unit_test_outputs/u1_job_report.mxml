@@ -4,7 +4,9 @@
     <Severity> -e </Severity>
     <Category> cat_A </Category>
     <Message> 
-      <Item> LogError was used to send this message  </Item>
+      <Item> LogError was used to send this message </Item>
+      <Item> -which is long enough to span lines but- </Item>
+      <Item> will not be broken up by the logger any more </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -13,7 +15,7 @@
     <Severity> -e </Severity>
     <Category> cat_B </Category>
     <Message> 
-      <Item> LogError was used to send this other message  </Item>
+      <Item> LogError was used to send this other message </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -22,7 +24,7 @@
     <Severity> -w </Severity>
     <Category> cat_A </Category>
     <Message> 
-      <Item> LogWarning was used to send this message  </Item>
+      <Item> LogWarning was used to send this message </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -31,7 +33,7 @@
     <Severity> -w </Severity>
     <Category> cat_B </Category>
     <Message> 
-      <Item> LogWarning was used to send this other message  </Item>
+      <Item> LogWarning was used to send this other message </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -40,7 +42,7 @@
     <Severity> -i </Severity>
     <Category> cat_A </Category>
     <Message> 
-      <Item> LogInfo was used to send this message  </Item>
+      <Item> LogInfo was used to send this message </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -49,7 +51,7 @@
     <Severity> -i </Severity>
     <Category> cat_B </Category>
     <Message> 
-      <Item> LogInfo was used to send this other message  </Item>
+      <Item> LogInfo was used to send this other message </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -58,7 +60,9 @@
     <Severity> -e </Severity>
     <Category> cat_A </Category>
     <Message> 
-      <Item> LogError was used to send this message  </Item>
+      <Item> LogError was used to send this message </Item>
+      <Item> -which is long enough to span lines but- </Item>
+      <Item> will not be broken up by the logger any more </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -67,7 +71,7 @@
     <Severity> -e </Severity>
     <Category> cat_B </Category>
     <Message> 
-      <Item> LogError was used to send this other message  </Item>
+      <Item> LogError was used to send this other message </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -76,7 +80,7 @@
     <Severity> -w </Severity>
     <Category> cat_A </Category>
     <Message> 
-      <Item> LogWarning was used to send this message  </Item>
+      <Item> LogWarning was used to send this message </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -85,7 +89,7 @@
     <Severity> -w </Severity>
     <Category> cat_B </Category>
     <Message> 
-      <Item> LogWarning was used to send this other message  </Item>
+      <Item> LogWarning was used to send this other message </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -94,7 +98,7 @@
     <Severity> -i </Severity>
     <Category> cat_A </Category>
     <Message> 
-      <Item> LogInfo was used to send this message  </Item>
+      <Item> LogInfo was used to send this message </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
@@ -103,7 +107,7 @@
     <Severity> -i </Severity>
     <Category> cat_B </Category>
     <Message> 
-      <Item> LogInfo was used to send this other message  </Item>
+      <Item> LogInfo was used to send this other message </Item>
     </Message>
     <Module> UnitTestClient_A:sendSomeMessages </Module>
   </Report>
