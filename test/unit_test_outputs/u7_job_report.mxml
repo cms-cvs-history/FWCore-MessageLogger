@@ -1,0 +1,23 @@
+<FrameworkJobReport>
+
+  <Report>
+    <Severity> -w </Severity>
+    <Category> FwkJob </Category>
+    <Message> 
+      <Item> This message should appear in  </Item>
+      <Item> the framework job report </Item>
+    </Message>
+    <Module> UnitTestClient_D:sendSomeMessages </Module>
+  </Report>
+
+  <Report>
+    <Severity> -w </Severity>
+    <Category> FwkJob </Category>
+    <Message> 
+      <Item> This message should appear in  </Item>
+      <Item> the framework job report </Item>
+    </Message>
+    <Module> UnitTestClient_D:sendSomeMessages </Module>
+  </Report>
+
+</FrameworkJobReport>
