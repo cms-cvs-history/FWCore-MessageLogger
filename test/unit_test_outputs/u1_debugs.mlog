@@ -18,10 +18,10 @@ LogInfo was used to send this message
 %MSG-i cat_B:  UnitTestClient_A:sendSomeMessages 1/1
 LogInfo was used to send this other message
 %MSG-! cat_A:  UnitTestClient_A:sendSomeMessages 1/1
-UnitTestClient_A.cc :29
+UnitTestClient_A.cc:29
 LogDebug was used to send this message
 %MSG-! cat_B:  UnitTestClient_A:sendSomeMessages 1/1
-UnitTestClient_A.cc :30
+UnitTestClient_A.cc:30
 LogDebug was used to send this other message
 %MSG-e cat_A:  UnitTestClient_A:sendSomeMessages 1/2
 LogError was used to send this message-which is long enough to span lines but-will not be broken up by the logger any more
@@ -36,8 +36,8 @@ LogInfo was used to send this message
 %MSG-i cat_B:  UnitTestClient_A:sendSomeMessages 1/2
 LogInfo was used to send this other message
 %MSG-! cat_A:  UnitTestClient_A:sendSomeMessages 1/2
-UnitTestClient_A.cc :29
+UnitTestClient_A.cc:29
 LogDebug was used to send this message
 %MSG-! cat_B:  UnitTestClient_A:sendSomeMessages 1/2
-UnitTestClient_A.cc :30
+UnitTestClient_A.cc:30
 LogDebug was used to send this other message
