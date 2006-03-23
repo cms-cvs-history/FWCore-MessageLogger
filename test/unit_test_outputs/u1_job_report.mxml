@@ -1,3 +1,21 @@
 <FrameworkJobReport>
 
+  <Report>
+    <Severity> -i </Severity>
+    <Category> FwkJob </Category>
+    <Message> 
+      <Item> LogInfo was used to send a job report </Item>
+    </Message>
+    <Module> UnitTestClient_A:sendSomeMessages </Module>
+  </Report>
+
+  <Report>
+    <Severity> -i </Severity>
+    <Category> FwkJob </Category>
+    <Message> 
+      <Item> LogInfo was used to send a job report </Item>
+    </Message>
+    <Module> UnitTestClient_A:sendSomeMessages </Module>
+  </Report>
+
 </FrameworkJobReport>

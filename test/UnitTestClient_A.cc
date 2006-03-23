@@ -18,6 +18,8 @@ void
 {
   std::string empty_;
   std::string file_ = "nameOfFile";
+       LogDebug  ("cat_A")   << "LogDebug was used to send this message";
+       LogDebug  ("cat_B")   << "LogDebug was used to send this other message";
   edm::LogError  ("cat_A")   << "LogError was used to send this message"
   			     << "-which is long enough to span lines but-"
 			     << "will not be broken up by the logger any more";
@@ -26,9 +28,9 @@ void
   edm::LogWarning("cat_B")   << "LogWarning was used to send this other message";
   edm::LogInfo   ("cat_A")   << "LogInfo was used to send this message";
   edm::LogInfo   ("cat_B")   << "LogInfo was used to send this other message";
-       LogDebug  ("cat_A")   << "LogDebug was used to send this message";
-       LogDebug  ("cat_B")   << "LogDebug was used to send this other message";
-}  // MessageLoggerClient::analyze()
+  edm::LogInfo   ("FwkJob")  << "LogInfo was used to send a job report";
+
+ }  // MessageLoggerClient::analyze()
 
 
 }  // namespace edmtest
