@@ -8,12 +8,12 @@
 %MSG-w cat_A:  UnitTestClient_D:sendSomeMessages 1/1
 This message should not appear in the framework job report
 %MSG-w FwkJob:  UnitTestClient_D:sendSomeMessages 1/1
-This message should appear in the framework job report
+<Message>This message should appear in the framework job report</Message>
 %MSG-w special:  UnitTestClient_D:sendSomeMessages 1/1
 This message should appear in restrict but the others should not
 %MSG-w cat_A:  UnitTestClient_D:sendSomeMessages 1/2
 This message should not appear in the framework job report
 %MSG-w FwkJob:  UnitTestClient_D:sendSomeMessages 1/2
-This message should appear in the framework job report
+<Message>This message should appear in the framework job report</Message>
 %MSG-w special:  UnitTestClient_D:sendSomeMessages 1/2
 This message should appear in restrict but the others should not
