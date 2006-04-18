@@ -1,0 +1,17 @@
+   service = MessageLogger
+   {
+      untracked vstring destinations = {"cout"}
+      PSet cout                      = {
+					 string threshold = "INFO"
+					PSet default = { int32 limit = 10000000  }
+					PSet FwkJob = { int32 limit = 0 }
+				    }
+
+      untracked vstring fwkJobReports = {"FrameworkJobReport.xml"}
+      vstring categories = { "FwkJob" }
+      PSet FrameworkJobReport.xml = {
+                                PSet default = { int32 limit = 0 }
+                                PSet FwkJob = { int32 limit = 10000000 }
+                                    }
+
+   }
