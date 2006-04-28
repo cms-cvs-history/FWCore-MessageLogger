@@ -27,6 +27,12 @@
   <use name=FWCore/Framework>
 </library>
 
+<library file="UnitTestClient_E.cc" name=UnitTestClient_E>
+  <flags SEAL_PLUGIN_NAME="UnitTestClient_E">
+  <use name=FWCore/MessageLogger>
+  <use name=FWCore/Framework>
+</library>
+
 <library file="MessageLoggerClient.cc" name=MessageLoggerClient>
   <flags SEAL_PLUGIN_NAME="MessageLoggerClient">
   <use name=FWCore/MessageLogger>
