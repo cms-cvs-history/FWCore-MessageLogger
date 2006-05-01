@@ -65,4 +65,8 @@
   <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u7.sh u8.sh">
 </bin>
 
+<bin file=unitTestsGroup_2.cpp>
+  <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u10.sh">
+</bin>
+
 
