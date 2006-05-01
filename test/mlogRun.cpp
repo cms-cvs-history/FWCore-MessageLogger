@@ -4,7 +4,7 @@ This is a generic main that can be used with any plugin and a
 PSet script.   See notes in EventProcessor.cpp for details about
 it.
 
-$Id: mlogRun.cpp,v 1.1 2005/11/18 21:59:07 fischler Exp $
+$Id: mlogRun.cpp,v 1.2 2005/11/22 22:07:08 fischler Exp $
 
 ----------------------------------------------------------------------*/
 
@@ -86,8 +86,7 @@ int main(int argc, char* argv[])
   edm::AssertHandler ah;
 
   int rc = -1; // we should never return this value!
-  try
-    {
+  try {
       edm::EventProcessor proc(configstring);
       proc.beginJob();
       proc.run();
@@ -96,27 +95,30 @@ int main(int argc, char* argv[])
       } else {
         rc = 1;
       }
-    }
-  catch (seal::Error& e)
-    {
+  }
+  catch (cms::Exception& e) {
+      std::cerr << "cms::Exception caught in " << argv[0] << "\n"
+		<< e.explainSelf()
+		<< std::endl;
+      rc = 1;
+  }
+  catch (seal::Error& e) {
       std::cerr << "Exception caught in " << argv[0] << "\n"
 		<< e.explainSelf()
 		<< std::endl;
       rc = 1;
-    }
-  catch (std::exception& e)
-    {
+  }
+  catch (std::exception& e) {
       std::cerr << "Standard library exception caught in " << argv[0] << "\n"
 		<< e.what()
 		<< std::endl;
       rc = 1;
-    }
-  catch (...)
-    {
+  }
+  catch (...) {
       std::cerr << "Unknown exception caught in " << argv[0]
 		<< std::endl;
       rc = 2;
-    }
+  }
 
   return rc;
 }
