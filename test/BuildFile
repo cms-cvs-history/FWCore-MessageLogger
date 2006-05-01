@@ -61,8 +61,8 @@
   <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u3.sh u4.sh u5.sh">
 </bin>
 
-<bin file=unitTestsStatistics.cpp>
-  <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u7.sh">
+<bin file=unitTestsLimits.cpp>
+  <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u7.sh u8.sh">
 </bin>
 
 
