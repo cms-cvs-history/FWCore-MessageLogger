@@ -33,6 +33,12 @@
   <use name=FWCore/Framework>
 </library>
 
+<library file="ProblemTestClient_t1.cc" name=ProblemTestClient_t1>
+  <flags SEAL_PLUGIN_NAME="ProblemTestClient_t1">
+  <use name=FWCore/MessageLogger>
+  <use name=FWCore/Framework>
+</library>
+
 <library file="MessageLoggerClient.cc" name=MessageLoggerClient>
   <flags SEAL_PLUGIN_NAME="MessageLoggerClient">
   <use name=FWCore/MessageLogger>
