@@ -7,10 +7,10 @@
        
 %MSG-i FwkReport:  BeforeEvents
 Begin processing the 1th record. Run 1, Event 1
-%MSG-! cat_A:  UnitTestClient_A:sendSomeMessages 1/1UnitTestClient_A.cc:21
+%MSG-! cat_A:  UnitTestClient_A:sendSomeMessages 1/1 UnitTestClient_A.cc:21
 LogDebug was used to send this message
 %MSG-! cat_B:  
-       UnitTestClient_A:sendSomeMessages 1/1UnitTestClient_A.cc:22
+       UnitTestClient_A:sendSomeMessages 1/1 UnitTestClient_A.cc:22
 LogDebug was used to send this other message
 %MSG-e cat_A:  
        UnitTestClient_A:sendSomeMessages 1/1
@@ -29,10 +29,10 @@ LogInfo was used to send this other message
 <Message>LogInfo was used to send a job report</Message>
 %MSG-i FwkReport:  BetweenModules BetweenEvents
 Begin processing the 2th record. Run 1, Event 2
-%MSG-! cat_A:  UnitTestClient_A:sendSomeMessages 1/2UnitTestClient_A.cc:21
+%MSG-! cat_A:  UnitTestClient_A:sendSomeMessages 1/2 UnitTestClient_A.cc:21
 LogDebug was used to send this message
 %MSG-! cat_B:  
-       UnitTestClient_A:sendSomeMessages 1/2UnitTestClient_A.cc:22
+       UnitTestClient_A:sendSomeMessages 1/2 UnitTestClient_A.cc:22
 LogDebug was used to send this other message
 %MSG-e cat_A:  
        UnitTestClient_A:sendSomeMessages 1/2
