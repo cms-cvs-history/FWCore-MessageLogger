@@ -1,0 +1,11 @@
+<bin name=Standalone file=Standalone.cpp>
+ <use name=boost>
+ <lib name=boost_program_options-gcc-mt> 
+ <use name=DataFormats/Common>
+ <use name=FWCore/Utilities>
+ <use name=FWCore/MessageLogger>
+ <use name=FWCore/ServiceRegistry>
+ <use name=FWCore/ParameterSet>
+ <use name=POOLCore>
+ <use name=uuid>
+</bin>
