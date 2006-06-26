@@ -1,9 +1,11 @@
 /*----------------------------------------------------------------------
 
    This is a generic main that can be used with any plugin and a 
-   PSet script. It shows the minimum machinery necessary to a
-   "standalone" program to issue MessageLogger nessages.
-
+   PSet script. It shows the minimum machinery necessary for a
+   "standalone" program to issue MessageLogger messages.
+   N. B. In this context, standalone means a job where the user
+   has provided the main program instead of supplying a module
+   for cmsRun to call on.
 
 ----------------------------------------------------------------------*/  
 
@@ -27,7 +29,9 @@
 
 void grumble( )
 {
-// Issue several types of logger messages
+// Issue several types of logger messages.  This function could
+// be substantially more complex. This example is about as simple
+// as can be.
 
   double d = 3.14159265357989;
   edm::LogWarning("cat_A")   << "Test of std::setprecision(p):"
@@ -47,15 +51,18 @@ int main(int argc, char* argv[]) {
   int rc = 0;
   try {
 
-//  We must initialize the plug-in manager first
+//  We must initialize the plug-in manager first.
     edm::AssertHandler ah;
 
-    // Load the message service plug-in.  Forget this and bad things happen!
+// Load the message service plug-in.  Forget this and bad things happen!
+// In particular, the job hangs as soon as the output buffer fills up.
+// That's because, without the message service, there is no mechanism for
+// emptying the buffers.
     boost::shared_ptr<edm::Presence> theMessageServicePresence;
     theMessageServicePresence = boost::shared_ptr<edm::Presence>(edm::PresenceFactory::get()->
       makePresence("MessageServicePresence").release());
 
-//  Manufacture a configuration and set it
+//  Manufacture a configuration and establish it.
     std::string config =
       "process x = {"
 	"service = MessageLogger {"
@@ -85,17 +92,17 @@ int main(int argc, char* argv[]) {
     boost::shared_ptr<edm::ParameterSet>          params_;
     edm::makeParameterSets(config, params_, pServiceSets);
 
-//  create the services
+//  Create the services.
     edm::ServiceToken tempToken(edm::ServiceRegistry::createSet(*pServiceSets.get()));
 
-//  make the services available
+//  Make the services available.
     edm::ServiceRegistry::Operate operate(tempToken);
 
-//  and generate a bunch of messages
+//  Generate a bunch of messages.
     grumble( );
   }
 
-//  Deal with exceptions
+//  Deal with any exceptions that may have been thrown.
   catch (cms::Exception& e) {
     std::cout << "cms::Exception caught in "
                                 << kProgramName
