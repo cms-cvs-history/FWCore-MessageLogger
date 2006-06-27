@@ -7,45 +7,45 @@
        
 %MSG-i FwkReport:  BeforeEvents
 Begin processing the 1th record. Run 1, Event 1
-%MSG-! cat_A:  UnitTestClient_A:sendSomeMessages 1/1 UnitTestClient_A.cc:21
+%MSG-! cat_A:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 1 UnitTestClient_A.cc:21
 LogDebug was used to send this message
 %MSG-! cat_B:  
-       UnitTestClient_A:sendSomeMessages 1/1 UnitTestClient_A.cc:22
+       UnitTestClient_A:sendSomeMessages Run: 1 Event: 1 UnitTestClient_A.cc:22
 LogDebug was used to send this other message
 %MSG-e cat_A:  
-       UnitTestClient_A:sendSomeMessages 1/1
+       UnitTestClient_A:sendSomeMessages Run: 1 Event: 1
 LogError was used to send this message-which is long enough to span lines but-will not be broken up by the logger any more
-%MSG-e cat_B:  UnitTestClient_A:sendSomeMessages 1/1
+%MSG-e cat_B:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 1
 LogError was used to send this other message
-%MSG-w cat_A:  UnitTestClient_A:sendSomeMessages 1/1
+%MSG-w cat_A:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 1
 LogWarning was used to send this message
-%MSG-w cat_B:  UnitTestClient_A:sendSomeMessages 1/1
+%MSG-w cat_B:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 1
 LogWarning was used to send this other message
-%MSG-i cat_A:  UnitTestClient_A:sendSomeMessages 1/1
+%MSG-i cat_A:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 1
 LogInfo was used to send this message
-%MSG-i cat_B:  UnitTestClient_A:sendSomeMessages 1/1
+%MSG-i cat_B:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 1
 LogInfo was used to send this other message
-%MSG-i FwkJob:  UnitTestClient_A:sendSomeMessages 1/1
+%MSG-i FwkJob:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 1
 <Message>LogInfo was used to send a job report</Message>
-%MSG-i FwkReport:  BetweenModules BetweenEvents
+%MSG-i FwkReport:  PostModule Run: 1 Event: 1
 Begin processing the 2th record. Run 1, Event 2
-%MSG-! cat_A:  UnitTestClient_A:sendSomeMessages 1/2 UnitTestClient_A.cc:21
+%MSG-! cat_A:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 2 UnitTestClient_A.cc:21
 LogDebug was used to send this message
 %MSG-! cat_B:  
-       UnitTestClient_A:sendSomeMessages 1/2 UnitTestClient_A.cc:22
+       UnitTestClient_A:sendSomeMessages Run: 1 Event: 2 UnitTestClient_A.cc:22
 LogDebug was used to send this other message
 %MSG-e cat_A:  
-       UnitTestClient_A:sendSomeMessages 1/2
+       UnitTestClient_A:sendSomeMessages Run: 1 Event: 2
 LogError was used to send this message-which is long enough to span lines but-will not be broken up by the logger any more
-%MSG-e cat_B:  UnitTestClient_A:sendSomeMessages 1/2
+%MSG-e cat_B:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 2
 LogError was used to send this other message
-%MSG-w cat_A:  UnitTestClient_A:sendSomeMessages 1/2
+%MSG-w cat_A:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 2
 LogWarning was used to send this message
-%MSG-w cat_B:  UnitTestClient_A:sendSomeMessages 1/2
+%MSG-w cat_B:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 2
 LogWarning was used to send this other message
-%MSG-i cat_A:  UnitTestClient_A:sendSomeMessages 1/2
+%MSG-i cat_A:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 2
 LogInfo was used to send this message
-%MSG-i cat_B:  UnitTestClient_A:sendSomeMessages 1/2
+%MSG-i cat_B:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 2
 LogInfo was used to send this other message
-%MSG-i FwkJob:  UnitTestClient_A:sendSomeMessages 1/2
+%MSG-i FwkJob:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 2
 <Message>LogInfo was used to send a job report</Message>
