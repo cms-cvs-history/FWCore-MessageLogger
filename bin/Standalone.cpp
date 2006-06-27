@@ -51,18 +51,18 @@ int main(int argc, char* argv[]) {
   int rc = 0;
   try {
 
-//  We must initialize the plug-in manager first.
-    edm::AssertHandler ah;
+// A.  Instantiate a plug-in manager first.
+   edm::AssertHandler ah;
 
-// Load the message service plug-in.  Forget this and bad things happen!
-// In particular, the job hangs as soon as the output buffer fills up.
-// That's because, without the message service, there is no mechanism for
-// emptying the buffers.
+// B.  Load the message service plug-in.  Forget this and bad things happen!
+//     In particular, the job hangs as soon as the output buffer fills up.
+//     That's because, without the message service, there is no mechanism for
+//     emptying the buffers.
     boost::shared_ptr<edm::Presence> theMessageServicePresence;
     theMessageServicePresence = boost::shared_ptr<edm::Presence>(edm::PresenceFactory::get()->
       makePresence("MessageServicePresence").release());
 
-//  Manufacture a configuration and establish it.
+// C.  Manufacture a configuration and establish it.
     std::string config =
       "process x = {"
 	"service = MessageLogger {"
@@ -92,10 +92,10 @@ int main(int argc, char* argv[]) {
     boost::shared_ptr<edm::ParameterSet>          params_;
     edm::makeParameterSets(config, params_, pServiceSets);
 
-//  Create the services.
+// D.  Create the services.
     edm::ServiceToken tempToken(edm::ServiceRegistry::createSet(*pServiceSets.get()));
 
-//  Make the services available.
+// E.  Make the services available.
     edm::ServiceRegistry::Operate operate(tempToken);
 
 //  Generate a bunch of messages.
