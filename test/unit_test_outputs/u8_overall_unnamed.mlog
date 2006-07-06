@@ -5,7 +5,7 @@
        
        =================================================
        
-%MSG-i FwkReport:  BeforeEvents
+%MSG-i FwkReport:  main_input:source BeforeEvents
 Begin processing the 1th record. Run 1, Event 1
 %MSG-i expect_overall_unnamed:  UnitTestClient_E:sendSomeMessages 
        Run: 1 Event: 1
