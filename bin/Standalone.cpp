@@ -27,6 +27,19 @@
 
 // -----------------------------------------------
 
+std::string indirectWarn( int num )
+{
+//  std::cout << "  Returning the string Emit Warning level message " << num << std::endl; 
+    return std::string("\t\tEmit Warning level message "); 
+}
+
+
+std::string indirectInfo( int num )
+{
+//  std::cout << "  Returning the string Emit Info level message " << num << std::endl; 
+    return std::string("\t\tEmit Info level message "); 
+}
+
 void grumble( )
 {
 // Issue several types of logger messages.  This function could
@@ -38,9 +51,11 @@ void grumble( )
   			     << " Pi with precision 12 is " 
   			     << std::setprecision(12) << d;
 
-  for( int i=0; i<1000; ++i) {
-    edm::LogInfo("cat_B")    << "\t\tEmit Info level message " << i+1;
-    edm::LogWarning("cat_C") << "\t\tEmit Warning level message " << i+1;
+  for( int i=0; i<25; ++i) {
+//  edm::LogInfo("cat_B")    << "\t\tEmit Info level message " << i+1;
+    edm::LogInfo("cat_B")    << indirectInfo(i+1) << i+1;
+//  edm::LogWarning("cat_C") << "\t\tEmit Warning level message " << i+1;
+    edm::LogWarning("cat_C") << indirectWarn(i+1) << i+1;
   }
 }  
 
@@ -66,7 +81,7 @@ int main(int argc, char* argv[]) {
     std::string config =
       "process x = {"
 	"service = MessageLogger {"
-	  "untracked vstring destinations = {'infos','warnings'}"
+	  "untracked vstring destinations = {'infos.mlog','warnings.mlog'}"
 	  "untracked PSet infos = {"
 	    "untracked string threshold = 'INFO'"
 	    "untracked PSet default = {untracked int32 limit = 1000000}"
