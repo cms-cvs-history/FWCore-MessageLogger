@@ -1,6 +1,5 @@
 <bin name=Standalone file=Standalone.cpp>
  <use name=boost>
- <use name=sigcpp>
  <use name=boost_program_options> 
  <use name=DataFormats/Common>
  <use name=FWCore/Utilities>

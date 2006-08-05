@@ -1,5 +1,4 @@
 <use name=boost>
-<use name=sigcpp>
 <use name=FWCore/Utilities>
 
 <environment>
