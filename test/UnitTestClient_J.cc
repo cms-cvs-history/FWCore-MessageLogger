@@ -1,5 +1,6 @@
-#include "FWCore/MessageLogger/test/UnitTestClient_H.h"
+#include "FWCore/MessageLogger/test/UnitTestClient_J.h"
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
+#include "FWCore/MessageLogger/interface/MessageDrop.h"
 #include "FWCore/Framework/interface/Event.h"
 #include "FWCore/Framework/interface/Handle.h"
 #include "FWCore/Framework/interface/MakerMacros.h"
@@ -12,19 +13,23 @@ namespace edmtest
 
 
 void
-  UnitTestClient_H::analyze( edm::Event      const & e
+  UnitTestClient_J::analyze( edm::Event      const & e
                            , edm::EventSetup const & /*unused*/
                               )
 {
+
+  edm::MessageDrop::instance()->debugEnabled  = false;
+
        LogTrace    ("cat_A") << "LogTrace was used to send this mess" << "age";
        LogDebug    ("cat_B") << "LogDebug was used to send this other message";
   edm::LogVerbatim ("cat_A") << "LogVerbatim was us" << "ed to send this message";
-  edm::LogInfo     ("cat_B") << "LogInfo was used to send this other message";
+  if( edm::isInfoEnabled() ) 
+     edm::LogInfo  ("cat_B") << "LogInfo was used to send this other message";
 }  // MessageLoggerClient::analyze()
 
 
 }  // namespace edmtest
 
 
-using edmtest::UnitTestClient_H;
-DEFINE_FWK_MODULE(UnitTestClient_H)
+using edmtest::UnitTestClient_J;
+DEFINE_FWK_MODULE(UnitTestClient_J)
