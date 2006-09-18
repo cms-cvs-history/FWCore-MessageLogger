@@ -4,11 +4,11 @@ pushd $LOCAL_TMP_DIR
 
 status=0
   
-rm -f  u2_warnings.mlog u2_cerr.mout 
+rm -f  u2_warnings.log u2_cerr.mout 
 
 cmsRun -p $LOCAL_TEST_DIR/u2.cfg 2> $LOCAL_TMP_DIR/u2_cerr.mout
  
-for file in u2_warnings.mlog u2_cerr.mout   
+for file in u2_warnings.log u2_cerr.mout   
 do
   diff $LOCAL_TEST_DIR/unit_test_outputs/$file $LOCAL_TMP_DIR/$file  
   if [ $? -ne 0 ]  

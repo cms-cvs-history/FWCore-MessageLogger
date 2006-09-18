@@ -4,11 +4,11 @@ pushd $LOCAL_TMP_DIR
 
 status=0
   
-rm -f u8_overall_unnamed.mlog u8_overall_specific.mlog u8_supercede_specific.mlog u8_non_supercede_common.mlog u8_specific.mlog
+rm -f u8_overall_unnamed.log u8_overall_specific.log u8_supercede_specific.log u8_non_supercede_common.log u8_specific.log
 
 cmsRun -p $LOCAL_TEST_DIR/u8.cfg
  
-for file in u8_overall_unnamed.mlog u8_overall_specific.mlog u8_supercede_specific.mlog u8_non_supercede_common.mlog u8_specific.mlog   
+for file in u8_overall_unnamed.log u8_overall_specific.log u8_supercede_specific.log u8_non_supercede_common.log u8_specific.log   
 do
   diff $LOCAL_TEST_DIR/unit_test_outputs/$file $LOCAL_TMP_DIR/$file  
   if [ $? -ne 0 ]  

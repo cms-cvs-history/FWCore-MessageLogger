@@ -4,11 +4,11 @@ pushd $LOCAL_TMP_DIR
 
 status=0
   
-rm -f u14_errors.mlog u14_warnings.mlog u14_infos.mlog u14_debugs.mlog u14_default.mlog u14_job_report.mxml 
+rm -f u14_errors.log u14_warnings.log u14_infos.log u14_debugs.log u14_default.log u14_job_report.mxml 
 
 cmsRun -p $LOCAL_TEST_DIR/u14.cfg
  
-for file in u14_errors.mlog u14_warnings.mlog u14_infos.mlog u14_debugs.mlog u14_default.mlog u14_job_report.mxml   
+for file in u14_errors.log u14_warnings.log u14_infos.log u14_debugs.log u14_default.log u14_job_report.mxml   
 do
   diff $LOCAL_TEST_DIR/unit_test_outputs/$file $LOCAL_TMP_DIR/$file  
 # fancy_diffs $LOCAL_TEST_DIR/unit_test_outputs/$file $LOCAL_TMP_DIR/$file $LOCAL_TEST_DIR/$file.diffs
