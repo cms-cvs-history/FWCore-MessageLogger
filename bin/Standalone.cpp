@@ -40,7 +40,7 @@ std::string indirectInfo( int num )
     return std::string("\t\tEmit Info level message "); 
 }
 
-void grumble( )
+void DoMyStuff( )
 {
 // Issue several types of logger messages.  This function could
 // be substantially more complex. This example is about as simple
@@ -114,7 +114,7 @@ int main(int argc, char* argv[]) {
     edm::ServiceRegistry::Operate operate(tempToken);
 
 //  Generate a bunch of messages.
-    grumble( );
+    DoMyStuff( );
   }
 
 //  Deal with any exceptions that may have been thrown.
