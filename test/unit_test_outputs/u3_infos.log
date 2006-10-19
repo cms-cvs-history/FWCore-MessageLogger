@@ -53,3 +53,8 @@ LogInfo was used to send this message
 LogInfo was used to send this other message
 %MSG-i FwkJob:  UnitTestClient_A:sendSomeMessages Run: 1 Event: 3
 <Message>LogInfo was used to send a job report</Message>
+%MSG-i FwkJob:  PostSource Run: 1 Event: 3
+<StorageStatistics>
+Storage parameters: adaptor: true Stats:true Buffering:false Caching:0,0
+Storage statistics: ; tfile/read=?/?/0MB/?ms/?ms/?ms; tfile/write=?/?/0MB/?ms/?ms/?ms
+</StorageStatistics>

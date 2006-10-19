@@ -11,3 +11,8 @@ LogInfo was used to send this other message
 LogVerbatim was used to send this message
 %MSG-i cat_B:  UnitTestClient_H:sendSomeMessages Run: 1 Event: 2
 LogInfo was used to send this other message
+%MSG-i FwkJob:  PostSource Run: 1 Event: 2
+<StorageStatistics>
+Storage parameters: adaptor: true Stats:true Buffering:false Caching:0,0
+Storage statistics: ; tfile/read=?/?/0MB/?ms/?ms/?ms; tfile/write=?/?/0MB/?ms/?ms/?ms
+</StorageStatistics>
