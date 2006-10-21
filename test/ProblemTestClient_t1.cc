@@ -26,4 +26,4 @@ void
 
 
 using edmtest::ProblemTestClient_t1;
-DEFINE_FWK_MODULE(ProblemTestClient_t1)
+DEFINE_FWK_MODULE(ProblemTestClient_t1);

@@ -56,4 +56,4 @@ void
 
 
 using edmtest::UnitTestClient_E;
-DEFINE_FWK_MODULE(UnitTestClient_E)
+DEFINE_FWK_MODULE(UnitTestClient_E);

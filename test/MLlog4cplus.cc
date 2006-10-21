@@ -5,7 +5,7 @@
 // 
 //
 // Original Author:  Jim Kowalkowski
-// $Id: MLlog4cplus.cc,v 1.4 2006/02/07 07:22:11 wmtan Exp $
+// $Id: MLlog4cplus.cc,v 1.5 2006/02/20 01:58:20 wmtan Exp $
 //
 
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
@@ -111,5 +111,5 @@ namespace ML {
 }
 
 using ML::MLlog4cplus;
-DEFINE_FWK_SERVICE(MLlog4cplus)
+DEFINE_FWK_SERVICE(MLlog4cplus);
 

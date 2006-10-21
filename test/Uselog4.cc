@@ -65,4 +65,4 @@ void
 
 
 using edmtest::Uselog4;
-DEFINE_FWK_MODULE(Uselog4)
+DEFINE_FWK_MODULE(Uselog4);

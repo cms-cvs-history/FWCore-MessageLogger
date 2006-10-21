@@ -36,4 +36,4 @@ void
 
 
 using edmtest::MessageLoggerClient;
-DEFINE_FWK_MODULE(MessageLoggerClient)
+DEFINE_FWK_MODULE(MessageLoggerClient);
