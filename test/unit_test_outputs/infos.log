@@ -29,8 +29,3 @@ Test of std::setprecision(p): Pi with precision 12 is 3.14159265358
 		Emit Warning level message 6
 %MSG-w cat_C:  UnitTestClient_G:sendSomeMessages Run: 1 Event: 1
 		Emit Warning level message 10
-%MSG-i FwkJob:  PostSource Run: 1 Event: 1
-<StorageStatistics>
-Storage parameters: adaptor: true Stats:true Buffering:false Caching:0,0
-Storage statistics: ; tfile/read=?/?/0MB/?ms/?ms/?ms; tfile/write=?/?/0MB/?ms/?ms/?ms
-</StorageStatistics>

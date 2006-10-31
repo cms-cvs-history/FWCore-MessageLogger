@@ -63,6 +63,12 @@
   <use name=FWCore/Framework>
 </library>
 
+<library file="UnitTestClient_K.cc" name=UnitTestClient_K>
+  <flags SEAL_PLUGIN_NAME="UnitTestClient_K">
+  <use name=FWCore/MessageLogger>
+  <use name=FWCore/Framework>
+</library>
+
 <library file="ProblemTestClient_t1.cc" name=ProblemTestClient_t1>
   <flags SEAL_PLUGIN_NAME="ProblemTestClient_t1">
   <use name=FWCore/MessageLogger>
@@ -106,7 +112,7 @@
 </bin>
 
 <bin file=unitTestsGroup_3.cpp>
-  <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u10.sh u16.sh">
+  <flags TEST_RUNNER_ARGS=" /bin/bash FWCore/MessageLogger/test u10.sh u16.sh u17.sh">
 </bin>
 
 

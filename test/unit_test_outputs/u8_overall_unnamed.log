@@ -30,8 +30,3 @@ message with overall default limit of 5: 15
 message with overall default limit of 5: 25
 %MSG-i unlisted_category:  UnitTestClient_E:sendSomeMessages Run: 1 Event: 1
 message with overall default limit of 5: 45
-%MSG-i FwkJob:  PostSource Run: 1 Event: 1
-<StorageStatistics>
-Storage parameters: adaptor: true Stats:true Buffering:false Caching:0,0
-Storage statistics: ; tfile/read=?/?/0MB/?ms/?ms/?ms; tfile/write=?/?/0MB/?ms/?ms/?ms
-</StorageStatistics>
