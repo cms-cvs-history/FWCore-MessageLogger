@@ -6,7 +6,7 @@
 // 
 //
 // Original Author:  Marc Paterno
-// $Id: JobReport.cc,v 1.12 2006/10/21 02:49:01 wmtan Exp $
+// $Id: JobReport.cc,v 1.13 2006/12/18 18:42:50 evansde Exp $
 //
 
 
@@ -198,10 +198,12 @@ namespace edm
     LogInfo("FwkJob") << "\n<GeneratorInfo>";
     std::map<std::string, std::string>::iterator pos;
     for (pos = generatorInfo_.begin(); pos != generatorInfo_.end(); ++pos){
-      LogInfo("FwkJob") << "\n<Data Name=\"" << pos->first
+      std::ostringstream msg;
+      msg << "\n<Data Name=\"" << pos->first
 			<< "\" Value=\"" << pos->second << "\">";
+      LogInfo("FwkJob") << msg.str();
     }
-    LogInfo("FwkJob") << "\n</GeneratorInfo>";
+    LogInfo("FwkJob") << "</GeneratorInfo>";
     
   }
 
