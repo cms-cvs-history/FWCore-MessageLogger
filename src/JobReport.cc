@@ -6,7 +6,7 @@
 // 
 //
 // Original Author:  Marc Paterno
-// $Id: JobReport.cc,v 1.7 2006/10/02 21:45:32 evansde Exp $
+// $Id: JobReport.cc,v 1.8 2006/10/03 21:55:08 evansde Exp $
 //
 
 
@@ -56,7 +56,23 @@ namespace edm
 			<< "</TotalEvents>\n";
       return os;      
     }
-    
+
+    ostream&
+    operator<< (std::ostream& os, 
+		JobReport::LumiSectionReport const& rep){
+      os << "\n<LumiSection>\n"
+	 << "<LumiSectionNumber Value=\""
+	 << rep.lumiSectionId
+	 << "\"/>\n"
+	 << "<RunNumber Value=\""
+	 << rep.runNumber
+	 << "\"/>\n"
+	 << "</LumiSection>\n";
+
+      
+	return os;
+    }
+
     JobReport::InputFile& JobReport::JobReportImpl::getInputFileForToken(JobReport::Token t) {
 	if (t >= inputFiles_.size() ) {
 	    throw edm::Exception(edm::errors::LogicError)
@@ -128,6 +144,23 @@ namespace edm
 	return result;
     }
 
+
+    /*
+     * get a vector of Tokens for all currently open
+     * output files. 
+     * 
+     */
+    std::vector<JobReport::Token> JobReport::JobReportImpl::openOutputFiles(void) {
+	std::vector<JobReport::Token> result;
+	for (unsigned int i = 0; i < outputFiles_.size(); ++i) {
+	  JobReport::OutputFile outFile = outputFiles_[i];
+	  if ( outFile.fileHasBeenClosed == false){
+	    result.push_back(i);
+	  }
+	}
+	return result;
+    }
+
     /*
      * Write anJobReport::InputFile object to the Logger 
      * Generate XML string forJobReport::InputFile instance and dispatch to 
@@ -156,6 +189,15 @@ namespace edm
 	LogInfo("FwkJob") << f;
  	LogInfo("FwkJob") << "\n<Inputs>";
 	
+	LogInfo("FwkJob") << "\n<LumiSections>";
+	std::vector<JobReport::LumiSectionReport>::iterator iLumi;
+	for (iLumi = f.lumiSections.begin();
+	     iLumi != f.lumiSections.end(); iLumi++){
+	  LogInfo("FwkJob") << *iLumi;
+	}
+	LogInfo("FwkJob") << "\n</LumiSections>\n";
+	  
+	LogInfo("FwkJob") << "\n<Inputs>";
  	std::vector<JobReport::Token>::iterator iInput;
  	for (iInput = f.contributingInputs.begin(); 
  	     iInput != f.contributingInputs.end(); iInput++) {
@@ -187,6 +229,45 @@ namespace edm
 	}
       }
     };
+
+  void JobReport::JobReportImpl::associateLumiSection(JobReport::LumiSectionReport  rep){
+    std::vector<Token> openFiles = openOutputFiles();
+    std::vector<Token>::iterator iToken;
+    for (iToken = openFiles.begin(); iToken != openFiles.end(); iToken++){
+      //
+      // Loop over all open output files
+      //
+      JobReport::OutputFile & theFile = outputFiles_[*iToken];
+      //
+      // check known lumi sections for each file
+      //
+      std::vector<JobReport::LumiSectionReport>::iterator iLumi;
+      bool lumiKnownByFile = false;
+      for (iLumi = theFile.lumiSections.begin();
+	   iLumi != theFile.lumiSections.end(); iLumi++){
+	
+	if ( (iLumi->lumiSectionId == rep.lumiSectionId) && 
+	     (iLumi->runNumber == rep.runNumber) ){
+	  //
+	  // This file already has this lumi section associated to it
+	  // dont report it twice
+	  
+	  lumiKnownByFile = true;
+	}
+      }
+      if (lumiKnownByFile == false){
+	//
+	// New lumi section for file: associate lumi section with it.
+	//
+	JobReport::LumiSectionReport newReport;
+	newReport.runNumber = rep.runNumber;
+	newReport.lumiSectionId = rep.lumiSectionId;
+	theFile.lumiSections.push_back(newReport);
+      }
+    }
+    
+    
+  }
 
   JobReport::~JobReport() {impl_->flushFiles();}
 
@@ -323,6 +404,15 @@ namespace edm
       msg << " Event=\"" << id.event() << "\" />\n";
       LogInfo("FwkJob") << msg.str();
     }
+
+  void 
+  JobReport::reportLumiSection(unsigned int run, unsigned int lumiSectId){
+    JobReport::LumiSectionReport lumiRep;
+    lumiRep.runNumber = run;
+    lumiRep.lumiSectionId = lumiSectId;
+    impl_->associateLumiSection(lumiRep);
+
+  }
 
   void
   JobReport::reportError(std::string const& shortDesc,
