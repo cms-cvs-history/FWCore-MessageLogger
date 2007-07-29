@@ -6,7 +6,7 @@
 // 
 //
 // Original Author:  Marc Paterno
-// $Id: JobReport.cc,v 1.8 2006/10/03 21:55:08 evansde Exp $
+// $Id: JobReport.cc,v 1.8.2.1 2007/07/24 21:47:33 wmtan Exp $
 //
 
 
@@ -187,7 +187,6 @@ namespace edm
     void JobReport::JobReportImpl::writeOutputFile(JobReport::OutputFile & f) {
 	LogInfo("FwkJob") << "\n<File>";
 	LogInfo("FwkJob") << f;
- 	LogInfo("FwkJob") << "\n<Inputs>";
 	
 	LogInfo("FwkJob") << "\n<LumiSections>";
 	std::vector<JobReport::LumiSectionReport>::iterator iLumi;
