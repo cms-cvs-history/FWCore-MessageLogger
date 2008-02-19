@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <map>
@@ -65,7 +66,7 @@ void work()
   }
 
   
-
+  std::ofstream * fout = new std::ofstream( "FwkJobRep.xml");
   //
   // Make JobReport Service up front
   // 
@@ -87,7 +88,7 @@ void work()
   
   
   std::cout << "Testing JobReport" << std::endl;
-  edm::JobReport * theReport = new edm::JobReport(); 
+  edm::JobReport * theReport = new edm::JobReport(fout); 
   
   
 
@@ -111,7 +112,7 @@ void work()
 
   }
 
-  
+  theReport->reportRandomStateFile("RandomStateSavedHere.dat");
   std::size_t outFile = theReport->outputFileOpened("OutputPFN",
 						    "OutputLFN",
 						    "OutputCatalog",
@@ -123,6 +124,8 @@ void work()
 						    outputBranches);
 
   
+  theReport->reportDataType(outFile, "magic");
+
   for (int i=0; i < 1000; i++){
     theReport->eventReadFromFile(inpFile, 1000001, i);
     theReport->eventWrittenToFile(outFile, 1000001, i);
