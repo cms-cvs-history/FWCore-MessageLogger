@@ -123,7 +123,10 @@ void work()
 						    "ThisIsAHash",
 						    outputBranches);
 
-  
+  theReport->reportRunNumber(10000000);
+  theReport->reportInputRunNumber(10000000);
+  theReport->reportInputRunNumber(9999999);
+  theReport->reportInputRunNumber(9999998);
   theReport->reportDataType(outFile, "magic");
   theReport->reportInputLumiSection(1000000001, 1);
   theReport->reportInputLumiSection(1000000001, 2);
@@ -132,6 +135,9 @@ void work()
   theReport->reportLumiSection(1000000001, 2);
   theReport->reportLumiSection(1000000001, 3);
   theReport->reportLumiSection(1000000001, 4);
+  theReport->reportLumiSection(1000000002, 2);
+  theReport->reportLumiSection(1000000002, 3);
+  theReport->reportLumiSection(1000000002, 4);
 
   for (int i=0; i < 1000; i++){
     theReport->eventReadFromFile(inpFile, 1000001, i);
