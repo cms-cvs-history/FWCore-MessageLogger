@@ -8,7 +8,7 @@
 //
 // Original Author:  M. Fischler and Jim Kowalkowsi
 //         Created:  Tues Feb 14 16:38:19 CST 2006
-// $Id: MessageDrop.cc,v 1.10 2010/11/02 21:04:01 fischler Exp $
+// $Id: MessageDrop.cc,v 1.12 2010/12/07 22:56:35 fischler Exp $
 //
 
 // system include files
@@ -38,6 +38,13 @@
 // 5  mf 11/30/10	Snapshot method to prepare for invalidation of the   
 //			pointers used to hold module context.  Supports 
 //			surviving throws that cause objects to go out of scope.
+//
+// 6  mf 12/7/10	Fix in snapshot method to avoid strncpy from
+//			a string to the identical address, which valgrind
+// 			reports as an overlap problem.
+//
+// 7  fwyzard 7/6/11    Add support for discarding LogError-level messages
+//                      on a per-module basis (needed at HLT)
 
 using namespace edm;
 
@@ -45,6 +52,7 @@ edm::Exception * MessageDrop::ex_p = 0;
 bool MessageDrop::debugEnabled=true;
 bool MessageDrop::infoEnabled=true;
 bool MessageDrop::warningEnabled=true;
+bool MessageDrop::errorEnabled=true;
 // The following are false at initialization (in case configure is not done)
 // and are set true at the start of configure_ordinary_destinations, 
 // but are set false once a destination is thresholded to react to the 
@@ -121,7 +129,9 @@ class StringProducerWithPhase : public StringProducer
       name_ = &snapshot_name_;
       snapshot_label_ = *label_;
       label_ = &snapshot_label_;
-      std::strncpy (snapshot_phase_,phasePtr_,PHASE_MAX_LENGTH);
+      if ( snapshot_phase_ != phasePtr_ ) {		// change log 6
+        std::strncpy (snapshot_phase_,phasePtr_,PHASE_MAX_LENGTH);
+      }
       snapshot_phase_[PHASE_MAX_LENGTH] = 0;
       phasePtr_ = snapshot_phase_;
     }
@@ -159,7 +169,9 @@ class StringProducerPath : public StringProducer{
     } 
     virtual void snapshot() 				// change log 5
     {
-      std::strncpy (snapshot_type_,typePtr_,TYPE_MAX_LENGTH);
+      if ( snapshot_type_ != typePtr_ ) {		// change log 6
+        std::strncpy (snapshot_type_,typePtr_,TYPE_MAX_LENGTH);
+      }
       snapshot_type_[TYPE_MAX_LENGTH] = 0;
       typePtr_ = snapshot_type_;
     }
@@ -180,7 +192,9 @@ class StringProducerSinglet : public StringProducer{
     void set(const char * sing) {singlet_ = sing; } 
     virtual void snapshot() 
     {
-      std::strncpy (snapshot_singlet_,singlet_,SINGLET_MAX_LENGTH);
+      if ( snapshot_singlet_ != singlet_ ) {		// change log 6
+        std::strncpy (snapshot_singlet_,singlet_,SINGLET_MAX_LENGTH);
+      }
       snapshot_singlet_[SINGLET_MAX_LENGTH] = 0;
       singlet_ = snapshot_singlet_;
     }
