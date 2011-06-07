@@ -21,19 +21,19 @@
 //  8/11/09  mf setStandAloneMessageThreshold() and
 //		squelchStandAloneMessageCategory()
 //
-//  10/29/09 wmtan  Use explicit non-inlined constructors for LogDebug_ 
+//  10/29/09 wmtan  Use explicit non-inlined constructors for LogDebug_
 //                  and LogTrace_
 //
 //  8/11/09  mf setStandAloneMessageThreshold() and
 //		squelchStandAloneMessageCategory()
 //
-//  9/23/10  mf Initialize debugEnabled according to 
+//  9/23/10  mf Initialize debugEnabled according to
 // 		MessageDrop::debugAlwaysSuppressed, rather than
 //		just true.  See change 21 of MessageLogger.h.
 //
 //  9/27/10  mf isDebugEnabled() - check that debugAlwaysSuppressed is
-//              false before examining debugEnabled, which in principle 
-//		ougth to be thread-specific thus more expensive to look at.
+//              false before examining debugEnabled, which in principle
+//		ought to be thread-specific thus more expensive to look at.
 //
 //  9/27/10b mf dtor for LogWarningThatSuppressesLikeLogInfo - see
 //		change log 22 in MessageLogger.h
@@ -42,6 +42,9 @@
 //		pointed-to strings in anticipation of key objects going
 //		away before a message is going to be issued.
 //
+//
+//  7/6/11 fwyzard  Add support for discarding LogError-level messages
+//                  on a per-module basis (needed at HLT)
 // ------------------------------------------------------------------------
 
 namespace edm {
@@ -80,6 +83,10 @@ bool isWarningEnabled() {
          && edm::MessageDrop::warningEnabled );
 }
 
+bool isErrorEnabled() {
+  return edm::MessageDrop::errorEnabled;                        // 7/6/11 fwyzard
+}
+
 void HaltMessageLogging() {
   edm::MessageLoggerQ::MLqSHT ( ); // Shut the logger up
 }
@@ -92,7 +99,7 @@ void FlushMessageLog() {
 
 void snapshotMessageLog() {					// 11/30/10 mf
   // Capture module name and label strings.
-  // Use if module objects are abuot to disappear due to exception,
+  // Use if module objects are about to disappear due to exception,
   // but a message will then be issued.
   MessageDrop::instance()->snapshot();
 }
@@ -100,7 +107,7 @@ void snapshotMessageLog() {					// 11/30/10 mf
 bool isMessageProcessingSetUp() {				// 6/20/08 mf
 //  std::cerr << "isMessageProcessingSetUp: \n";
 //  std::cerr << "messageLoggerScribeIsRunning = "
-//  	    << (int)MessageDrop::instance()->messageLoggerScribeIsRunning << "\n";
+//            << (int)MessageDrop::instance()->messageLoggerScribeIsRunning << "\n";
   return (MessageDrop::instance()->messageLoggerScribeIsRunning ==
   			MLSCRIBE_RUNNING_INDICATOR);
 }
