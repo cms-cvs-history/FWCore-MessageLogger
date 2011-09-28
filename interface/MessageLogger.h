@@ -168,13 +168,13 @@ public:
 
   template< class T >
     LogError & 
-    operator<< (T const & t)  { (*ap) << t; return *this; }
+    operator<< (T const & t)  { if(ap.get()) (*ap) << t; return *this; }
   LogError & 
   operator<< ( std::ostream&(*f)(std::ostream&))  
-				      { (*ap) << f; return *this; }
+				      { if(ap.get()) (*ap) << f; return *this; }     
   LogError & 
   operator<< ( std::ios_base&(*f)(std::ios_base&) )  
-				      { (*ap) << f; return *this; }     
+				      { if(ap.get()) (*ap) << f; return *this; }     
 
 private:
   std::auto_ptr<MessageSender> ap; 
@@ -277,10 +277,10 @@ public:
 								// Change log 14
   LogPrint & 
   operator<< ( std::ostream&(*f)(std::ostream&))  
-				{ if(ap.get()) (*ap) << f; return *this; }
+				      { if(ap.get()) (*ap) << f; return *this; }
   LogPrint & 
   operator<< ( std::ios_base&(*f)(std::ios_base&) )  
-				{ if(ap.get()) (*ap) << f; return *this; }      
+				      { if(ap.get()) (*ap) << f; return *this; }      
 
 private:
   std::auto_ptr<MessageSender> ap; 
@@ -301,13 +301,13 @@ public:
 
   template< class T >
     LogProblem & 
-    operator<< (T const & t)  { (*ap) << t; return *this; }
+    operator<< (T const & t)  { if(ap.get()) (*ap) << t; return *this; }
   LogProblem & 
   operator<< ( std::ostream&(*f)(std::ostream&))  
-				      { (*ap) << f; return *this; }
+				      { if(ap.get()) (*ap) << f; return *this; }
   LogProblem & 
   operator<< ( std::ios_base&(*f)(std::ios_base&) )  
-				      { (*ap) << f; return *this; }     
+				      { if(ap.get()) (*ap) << f; return *this; }
 
 private:
   std::auto_ptr<MessageSender> ap; 
@@ -327,13 +327,13 @@ public:
 
   template< class T >
     LogImportant & 
-    operator<< (T const & t)  { (*ap) << t; return *this; }
+    operator<< (T const & t)  { if(ap.get()) (*ap) << t; return *this; }      
   LogImportant & 
   operator<< ( std::ostream&(*f)(std::ostream&))  
-				      { (*ap) << f; return *this; }
+				      { if(ap.get()) (*ap) << f; return *this; }      
   LogImportant & 
   operator<< ( std::ios_base&(*f)(std::ios_base&) )  
-				      { (*ap) << f; return *this; }     
+				      { if(ap.get()) (*ap) << f; return *this; }      
 
 private:
   std::auto_ptr<MessageSender> ap; 
